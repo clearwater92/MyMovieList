@@ -5,6 +5,7 @@ export const likeReducer = (state = {}, action) => {
     case LIKE_MOVIE:
       return {
         ...state,
+        [action.payload.id]: action.payload,
       };
     default:
       return state;

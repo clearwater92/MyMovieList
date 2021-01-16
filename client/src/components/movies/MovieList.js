@@ -1,14 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Card } from 'react-bootstrap';
 import { IMAGE_BASE_URL } from '../../apis/fetchMovieData';
 import { BsHeartFill } from 'react-icons/bs';
+import { Link } from 'react-router-dom';
+import MovieLike from './MovieLike';
 
 const Movie = ({ info }) => {
-	const like = () => {
-		console.log(info);
-	}
-
   return (
     <Card key={info.id}>
       <Card.Img
@@ -17,7 +15,9 @@ const Movie = ({ info }) => {
       ></Card.Img>
       <Card.Body>
         <Card.Title>{info.title}</Card.Title>
-        <BsHeartFill onClick={like} />
+        <Link to={`/movies/like/${info.id}`}>
+          <BsHeartFill />
+        </Link>
         {/* <Card.Text>{movie.overview}</Card.Text> */}
       </Card.Body>
     </Card>
@@ -25,6 +25,7 @@ const Movie = ({ info }) => {
 };
 
 const MovieList = ({ movies }) => {
+  //const [like, setLike] = useState({});
   return (
     <Container>
       <div className="row row-cols-3">
