@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
-import { fetchReducer } from './fetchReducer';
-import { likeReducer } from './likeReducer';
+import { tmdbReducer } from './tmdbReducer';
+import { wishListReducer } from './wishListReducer';
+import {selectReducer} from './selectReducer';
 
 export default combineReducers({
-  movies: fetchReducer,
-  wishList: likeReducer,
+  movies: tmdbReducer,
+  wishList: wishListReducer,
+  selectedMovie: selectReducer
 });

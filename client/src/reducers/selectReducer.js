@@ -1,7 +1,7 @@
 import { LIKE_MOVIE } from '../actions/types';
 
-export const likeReducer = (state = {}, action) => {
-  switch (action.type) {
+export const selectReducer = (state = {}, action) => {
+  switch (action.payload) {
     case LIKE_MOVIE:
       return {
         ...state,

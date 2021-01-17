@@ -1,16 +1,17 @@
 import React from 'react';
-import { Route, BrowserRouter } from 'react-router-dom';
+import { Route, Router } from 'react-router-dom';
 import MovieListContainer from './movies/MovieListContainer';
 import MovieLike from './movies/MovieLike';
+import history from '../history';
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <Router history={history}>
       <div>
         <Route path="/" exact component={MovieListContainer} />
 				<Route path="/movies/like/:id" exact component={MovieLike} />
       </div>
-    </BrowserRouter>
+    </Router>
   );
 };
 
