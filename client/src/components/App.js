@@ -9,7 +9,7 @@ const App = () => {
     <Router history={history}>
       <div>
         <Route path="/" exact component={MovieListContainer} />
-				<Route path="/movies/like/:id" exact component={MovieLike} />
+				<Route path="/movies/:id" exact component={MovieLike} />
       </div>
     </Router>
   );

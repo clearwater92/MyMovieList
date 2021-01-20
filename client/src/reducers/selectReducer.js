@@ -1,4 +1,5 @@
-import { LIKE_MOVIE } from '../actions/types';
+import _ from 'lodash';
+import { LIKE_MOVIE, CANCEL_MOVIE } from '../actions/types';
 
 export const selectReducer = (state = {}, action) => {
   switch (action.payload) {
@@ -7,6 +8,8 @@ export const selectReducer = (state = {}, action) => {
         ...state,
         [action.payload.id]: action.payload,
       };
+    case CANCEL_MOVIE:
+      return _.omit(state, action.payload);
     default:
       return state;
   }
