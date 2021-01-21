@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import _ from 'lodash';
 import { connect } from 'react-redux';
 import { fetchTmdb, likeMovie, fetchWishList, cancelMovie } from '../../actions';
@@ -10,10 +10,9 @@ const MovieLike = (props) => {
   }
 
   useEffect(() => {
-    console.log(props.wishList);
     if (!idList.filter((id) => id === props.movie.id)?.length) {
       props.likeMovie(
-        _.pick(props.movie, 'id', 'title', 'vote_average', 'release_date'),
+        _.pick(props.movie, 'id', 'title', 'vote_average', 'release_date', 'backdrop_path'),
       );
     } else {
       props.cancelMovie(props.movie.id);
