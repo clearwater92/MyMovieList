@@ -24,6 +24,7 @@ const Movie = ({ info }) => {
 
 const MovieList = ({ movies }) => {
   //const [like, setLike] = useState({});
+  console.log(movies)
   return (
     <div>
       <div className="movie-container">
