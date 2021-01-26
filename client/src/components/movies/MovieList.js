@@ -4,12 +4,18 @@ import { IMAGE_BASE_URL } from '../../apis/fetchMovieData';
 import { BsHeartFill } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 
+const notPreparedImg = 'https://images.unsplash.com/photo-1509281373149-e957c6296406?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=369&q=80';
+
 const Movie = ({ info }) => {
   return (
     <div className="movie" key={info.id}>
       <img
         alt={info.original_title}
-        src={`${IMAGE_BASE_URL}w1280${info.backdrop_path}`}
+        src={
+          info.backdrop_path
+            ? `${IMAGE_BASE_URL}w1280${info.backdrop_path}`
+            : notPreparedImg
+        }
       ></img>
       <div className="movie-info">
         <h3>{info.title}</h3>
@@ -24,7 +30,6 @@ const Movie = ({ info }) => {
 
 const MovieList = ({ movies }) => {
   //const [like, setLike] = useState({});
-  console.log(movies)
   return (
     <div>
       <div className="movie-container">
