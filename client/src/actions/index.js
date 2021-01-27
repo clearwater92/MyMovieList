@@ -2,6 +2,7 @@ import fetchMovieData from '../apis/fetchMovieData';
 import wishList from '../apis/wishList';
 import {
   FETCH_MOVIE_DATA,
+  FETCH_MOVIE,
   LIKE_MOVIE,
   FETCH_WISH_LIST,
   CANCEL_MOVIE,
@@ -32,6 +33,12 @@ export const fetchWishList = () => {
     //history.push('/');
   };
 };
+
+export const fetchMovie = (id) => async dispatch => {
+  const response = await fetchMovieData.get(`/movies/${id}`);
+  console.log('fetchMovie');
+  dispatch({ type: FETCH_MOVIE, payload: response.data });
+}
 
 export const likeMovie = (movie) => {
   return async (dispatch) => {
